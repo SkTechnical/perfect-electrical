@@ -1,0 +1,429 @@
+/* ===== GLOBAL STYLES ===== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+}
+
+body {
+  background: #0d1117;
+  color: #fff;
+}
+
+.container {
+  width: 90%;
+  margin: auto;
+  max-width: 1200px;
+}
+
+/* ===== HEADER ===== */
+.header {
+  background: #111;
+  padding: 15px 0;
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+
+.logo {
+  color: #f9d342;
+  font-weight: 600;
+}
+
+.nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.nav-links {
+  display: flex;
+  list-style: none;
+}
+
+.nav-links li {
+  margin-left: 20px;
+}
+
+.nav-links a {
+  color: #fff;
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.3s;
+}
+
+.nav-links a:hover {
+  color: #f9d342;
+}
+
+/* ===== HERO SECTION ===== */
+.hero {
+  height: 90vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+/* HERO SLIDER */
+.hero-slider {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+}
+
+.hero-slider img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0;
+  transition: opacity 1.5s ease-in-out;
+}
+
+.hero-slider img.active {
+  opacity: 1;
+}
+
+.hero-content {
+  position: relative;
+  z-index: 5;
+  padding: 30px;
+  background: rgba(0, 0, 0, 0.4);
+  border-radius: 15px;
+}
+
+.hero-content h2 {
+  font-size: 2.5rem;
+  color: #f9d342;
+}
+
+.hero-content p {
+  margin: 15px 0;
+  font-size: 1.1rem;
+}
+
+.btn {
+  background: #f9d342;
+  color: #111;
+  padding: 10px 25px;
+  text-decoration: none;
+  font-weight: 600;
+  border-radius: 30px;
+  transition: background 0.3s;
+}
+
+.btn:hover {
+  background: #ffde59;
+}
+
+/* ===== ABOUT SECTION ===== */
+.about {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  padding: 80px 0;
+  gap: 30px;
+}
+
+.about-text {
+  flex: 1;
+}
+
+.about-img {
+  flex: 1;
+  width: 100%;
+  border-radius: 15px;
+}
+
+/* ===== SERVICES SECTION ===== */
+.services {
+  text-align: center;
+  padding: 80px 0;
+  background: #161b22;
+}
+
+.service-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 25px;
+  margin-top: 30px;
+}
+
+.service-card {
+  background: #1f2937;
+  padding: 30px;
+  border-radius: 15px;
+  transition: transform 0.3s;
+}
+
+.service-card:hover {
+  transform: translateY(-5px);
+}
+
+.service-card h3 {
+  color: #f9d342;
+  margin-bottom: 10px;
+}
+
+/* ===== GALLERY SECTION ===== */
+.gallery {
+  text-align: center;
+  padding: 80px 0;
+  --image-count-desktop: 4;
+  --image-count-mobile: 2;
+  --slide-gap: 15px;
+}
+
+.gallery-container {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.gallery-slider {
+  overflow-x: auto;
+  display: flex;
+  scroll-behavior: smooth;
+  padding: 20px 0;
+  width: 90%;
+}
+
+.gallery-track {
+  display: flex;
+  gap: var(--slide-gap);
+  scroll-snap-type: x mandatory;
+}
+
+.gallery-track img {
+  flex: 0 0 auto;
+  width: 200px;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 15px;
+  transition: transform 0.3s;
+  scroll-snap-align: start;
+}
+
+.gallery-track img:hover {
+  transform: scale(1.05);
+}
+
+/* ===== GALLERY ARROWS ===== */
+.arrow {
+  background: rgba(0, 0, 0, 0.6);
+  color: #f9d342;
+  border: none;
+  font-size: 1.8rem;
+  padding: 10px 15px;
+  border-radius: 50%;
+  cursor: pointer;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 5;
+  transition: background 0.3s;
+  display: block;
+}
+
+.arrow:hover {
+  background: rgba(0, 0, 0, 0.9);
+}
+
+.arrow.left {
+  left: 10px;
+}
+
+.arrow.right {
+  right: 10px;
+}
+
+/* ===== CONTACT SECTION ===== */
+.contact {
+  text-align: center;
+  padding: 80px 0;
+  background: #161b22;
+}
+
+.contact-info p {
+  margin: 10px 0;
+}
+
+/* ===== CONTACT LINK COLORS ===== */
+.phone-link {
+  color: #f9d342;
+  font-weight: 500;
+  text-decoration: none;
+  transition: color 0.3s;
+}
+
+.phone-link:hover {
+  color: #ffde59;
+}
+
+.email-link {
+  color: #1db954;
+  font-weight: 500;
+  text-decoration: none;
+  transition: color 0.3s;
+}
+
+.email-link:hover {
+  color: #43e97b;
+}
+
+.whatsapp-btn {
+  background: #25d366;
+  color: #fff;
+  text-decoration: none;
+  display: inline-block;
+  margin-top: 10px;
+  padding: 10px 20px;
+  border-radius: 30px;
+  font-weight: 600;
+  transition: background 0.3s;
+}
+
+.whatsapp-btn:hover {
+  background: #1ebe57;
+}
+
+/* ===== FOOTER ===== */
+.footer {
+  background: #111;
+  text-align: center;
+  padding: 15px 0;
+  font-size: 0.9rem;
+}
+
+/* ===== MOBILE STYLES ===== */
+@media (max-width: 768px) {
+  /* HEADER */
+  .nav {
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .logo {
+    font-size: 1.5rem;
+    text-align: center;
+  }
+
+  .nav-links {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 2px;
+    width: 100%;
+    padding: 5px 0;
+  }
+
+  /* HERO */
+  .hero {
+    height: 60vh;
+    padding: 20px;
+  }
+
+  .hero-content {
+    padding: 15px;
+    border-radius: 10px;
+  }
+
+  .hero-content h2 {
+    font-size: 1.6rem;
+  }
+
+  .hero-content p {
+    font-size: 1rem;
+  }
+
+  .btn {
+    padding: 8px 20px;
+    font-size: 0.9rem;
+  }
+
+  /* ABOUT */
+  .about {
+    flex-direction: column;
+    gap: 20px;
+    padding: 50px 0;
+  }
+
+  .about-text {
+    text-align: center;
+  }
+
+  .about-img {
+    height: auto;
+  }
+
+  /* SERVICES */
+  .service-grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+    margin-top: 20px;
+  }
+
+  .service-card {
+    padding: 20px;
+  }
+
+  .service-card h3 {
+    font-size: 1.2rem;
+  }
+
+  .service-card p {
+    font-size: 0.95rem;
+  }
+
+  /* GALLERY */
+  .gallery {
+    --image-count-mobile: 1;
+    --slide-gap: 10px;
+    padding: 50px 0;
+  }
+
+  .gallery-slider {
+    width: 100%;
+    padding: 15px 0;
+  }
+
+  .gallery-track img {
+    height: 160px;
+    border-radius: 12px;
+    flex: 0 0 80%;
+    margin: 0 auto;
+  }
+
+  .arrow {
+    display: none;
+  }
+
+  /* CONTACT */
+  .contact-info {
+    text-align: center;
+    margin-bottom: 15px;
+  }
+
+  .contact-info p {
+    margin: 8px 0;
+    font-size: 0.95rem;
+  }
+
+  .whatsapp-btn {
+    width: 80%;
+    text-align: center;
+    margin: 10px auto 0;
+    display: block;
+  }
+}

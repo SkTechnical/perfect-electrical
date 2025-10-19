@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Perfect Electrical & CCTV Camera Works</title>
+  <link rel="stylesheet" href="style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+</head>
+
+<body>
+  <!-- Header Section -->
+  <header class="header">
+    <div class="container nav">
+      <h1 class="logo">⚡ Perfect Electrical & CCTV Camera Works</h1>
+      <nav>
+        <ul class="nav-links">
+          <li><a href="#about">About</a></li>
+          <li><a href="#services">Services</a></li>
+          <li><a href="#gallery">Gallery</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="hero-slider">
+      <img src="main_images/mwork1.jpg" alt="Electrical Work Background 1" class="slide active">
+      <img src="main_images/mwork2.jpg" alt="Electrical Work Background 2" class="slide">
+      <img src="main_images/mwork3.jpg" alt="Electrical Work Background 3" class="slide">
+      <img src="main_images/mwork4.jpg" alt="Electrical Work Background 4" class="slide">
+      <img src="main_images/mwork5.jpg" alt="Electrical Work Background 5" class="slide">
+    </div>
+    <div class="hero-content">
+      <h2>Professional Electrical & CCTV Services</h2>
+      <p>15+ Years of Trusted Experience in Home, Office & Industrial Wiring</p>
+      <a href="#contact" class="btn">Get a Free Quote</a>
+    </div>
+  </section>
+
+  <!-- About Section -->
+  <section id="about" class="about container">
+    <div class="about-text">
+      <h2>About Me</h2>
+      <p>Hi, I’m <strong>Fullbabu</strong> — a professional electrician with over 15 years of experience in electrical
+        work, CCTV camera installation, home/office wiring, and LAN/network setup. I’m skilled in Wi-Fi and internet
+        installations, ensuring reliable connectivity alongside safe, efficient, and high-quality electrical solutions.
+      </p>
+    </div>
+    <img src="images/electrician-work.webp" alt="Electrician at work" class="about-img">
+  </section>
+
+  <!-- Services Section -->
+  <section id="services" class="services">
+    <h2>Our Services</h2>
+    <div class="service-grid">
+      <div class="service-card">
+        <h3>Electrical Wiring</h3>
+        <p>Complete wiring setup for homes, offices, and industries.</p>
+      </div>
+      <div class="service-card">
+        <h3>CCTV Installation</h3>
+        <p>Advanced CCTV setup for safety and monitoring.</p>
+      </div>
+      <div class="service-card">
+        <h3>LAN & Network Services</h3>
+        <p>Professional LAN setup, internet, and Wi-Fi installations for homes and offices.</p>
+      </div>
+      <div class="service-card">
+        <h3>Home & Office Wiring</h3>
+        <p>Safe and professional electrical setup for every space.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Gallery Section -->
+  <section id="gallery" class="gallery">
+    <h2>Recent Projects</h2>
+    <div class="gallery-container">
+      <button class="arrow left" id="prevBtn">◀</button>
+
+      <div class="gallery-slider" id="gallerySlider">
+        <div class="gallery-track">
+          <img src="images/work1.jpg" alt="Work 1">
+          <img src="images/work2.jpg" alt="Work 2">
+          <img src="images/work3.webp" alt="Work 3">
+          <img src="images/work4.jpg" alt="Work 4">
+          <img src="images/work5.jpg" alt="Work 5">
+          <img src="images/work6.jpg" alt="Work 6">
+          <img src="images/work7.jpg" alt="Work 7">
+          <img src="images/work8.jpg" alt="Work 8">
+        </div>
+      </div>
+
+      <button class="arrow right" id="nextBtn">▶</button>
+    </div>
+  </section>
+
+
+   <!-- Contact Section -->
+  <section id="contact" class="contact">
+    <h2>Contact Me</h2>
+    <p>Get in touch for quotes or urgent services.</p>
+    <div class="contact-info">
+      <p>📞 <a href="tel:+918433678986" class="phone-link">+91 84336 78986</a></p>
+      <p>📧 <a href="mailto:mdfulbabukhan1408@gmail.com" class="email-link">mdfulbabukhan1408@gmail.com</a></p>
+      <p>📍 Mumbai, India</p>
+    </div>
+    <a href="https://wa.me/918433678986" class="btn whatsapp-btn" target="_blank">Chat on WhatsApp</a>
+  </section>
+
+
+  <!-- Footer -->
+  <footer class="footer">
+    <p>© 2025 Perfect Electrical & CCTV Camera Works | Designed by Sk TECHNICAL</p>
+  </footer>
+
+  <!-- Scripts -->
+  <script>
+    // Gallery JS
+    const slider = document.getElementById('gallerySlider');
+    const track = slider.querySelector('.gallery-track');
+    const prevBtn = document.getElementById('prevBtn');
+    const nextBtn = document.getElementById('nextBtn');
+    const slideDelay = 3000;
+    let slideInterval;
+    const gallerySection = document.getElementById('gallery');
+
+    function getCssVariable(name) {
+      const value = window.getComputedStyle(gallerySection).getPropertyValue(name).trim();
+      return parseInt(value) || 0;
+    }
+
+    function getMaxScroll() {
+      return track.scrollWidth - slider.clientWidth;
+    }
+
+    function resizeGallery() {
+      if (!slider || !track) return;
+
+      const slideGap = getCssVariable('--slide-gap');
+      const desktopCount = getCssVariable('--image-count-desktop');
+      const mobileCount = getCssVariable('--image-count-mobile');
+      const imageCount = window.innerWidth <= 768 ? mobileCount : desktopCount;
+      const sliderWidth = slider.clientWidth;
+      const totalGapsWidth = slideGap * (imageCount - 1);
+      const imageWidth = Math.floor((sliderWidth - totalGapsWidth) / imageCount);
+
+      track.querySelectorAll('img').forEach(img => {
+        img.style.width = `${imageWidth}px`;
+        img.style.flexBasis = `${imageWidth}px`;
+      });
+
+      slider.scrollLeft = 0;
+      updateArrowVisibility();
+    }
+
+    function getSlideStep() {
+      const slideGap = getCssVariable('--slide-gap');
+      const firstImage = track.querySelector('img');
+      return firstImage ? firstImage.offsetWidth + slideGap : 0;
+    }
+
+    function updateArrowVisibility() {
+      const currentScroll = slider.scrollLeft;
+      const maxScroll = getMaxScroll();
+      const tolerance = 5;
+
+      const currentVisibleCount = window.innerWidth <= 768 ? getCssVariable('--image-count-mobile') : getCssVariable('--image-count-desktop');
+      if (track.children.length <= currentVisibleCount) {
+        prevBtn.style.display = 'none';
+        nextBtn.style.display = 'none';
+        return;
+      } else {
+        prevBtn.style.display = 'block';
+        nextBtn.style.display = 'block';
+      }
+
+      if (currentScroll <= tolerance) prevBtn.style.display = 'none';
+      if (currentScroll >= maxScroll - tolerance) nextBtn.style.display = 'none';
+    }
+
+    function autoSlide() {
+      const slideStep = getSlideStep();
+      if (slideStep === 0) return;
+      const maxScroll = getMaxScroll();
+      if (slider.scrollLeft >= maxScroll - 5) {
+        clearInterval(slideInterval);
+        slideInterval = null;
+      } else {
+        slider.scrollBy({ left: slideStep, behavior: 'smooth' });
+      }
+      setTimeout(updateArrowVisibility, 600);
+    }
+
+    nextBtn.addEventListener('click', () => {
+      clearInterval(slideInterval);
+      const slideStep = getSlideStep();
+      const maxScroll = getMaxScroll();
+      if (slider.scrollLeft < maxScroll - 5) slider.scrollBy({ left: slideStep, behavior: 'smooth' });
+      setTimeout(updateArrowVisibility, 600);
+      if (slider.scrollLeft < maxScroll - slideStep - 5) slideInterval = setInterval(autoSlide, slideDelay);
+    });
+
+    prevBtn.addEventListener('click', () => {
+      clearInterval(slideInterval);
+      const slideStep = getSlideStep();
+      if (slider.scrollLeft > 5) slider.scrollBy({ left: -slideStep, behavior: 'smooth' });
+      setTimeout(updateArrowVisibility, 600);
+      slideInterval = setInterval(autoSlide, slideDelay);
+    });
+
+    document.addEventListener('DOMContentLoaded', resizeGallery);
+    window.addEventListener('resize', resizeGallery);
+    slider.addEventListener('scroll', updateArrowVisibility);
+    slider.addEventListener('mouseenter', () => clearInterval(slideInterval));
+    slider.addEventListener('mouseleave', () => {
+      if (slider.scrollLeft < getMaxScroll() - 5 && slideInterval === null) {
+        slideInterval = setInterval(autoSlide, slideDelay);
+      }
+    });
+    document.addEventListener('DOMContentLoaded', updateArrowVisibility);
+
+    // Hero Slider
+    function startHeroSlider() {
+      const slides = document.querySelectorAll('.hero-slider .slide');
+      let currentSlide = 0;
+      const fadeDuration = 5000;
+      if (slides.length < 2) return;
+      function nextSlide() {
+        slides[currentSlide].classList.remove('active');
+        currentSlide = (currentSlide + 1) % slides.length;
+        slides[currentSlide].classList.add('active');
+      }
+      setInterval(nextSlide, fadeDuration);
+    }
+    document.addEventListener('DOMContentLoaded', startHeroSlider);
+  </script>
+</body>
+
+</html>
