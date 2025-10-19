@@ -427,3 +427,14 @@ body {
     display: block;
   }
 }
+
+
+/* === Fix for sticky header anchor offset === */
+section[id] {
+  scroll-margin-top: 90px; /* adjust if your header is taller/shorter */
+}
+
+/* Smooth scrolling for a better experience */
+html {
+  scroll-behavior: smooth;
+}
